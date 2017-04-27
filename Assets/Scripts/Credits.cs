@@ -8,7 +8,7 @@ public class Credits : MonoBehaviour {
     public string[] ArrayTxT;
     public string Components;
     public Text [] HeaderSection;
-    private Vector3 StartPos = new Vector3(470.0f, 440.0f);
+   // private Vector3 StartPos = new Vector3(470.0f, 440.0f);
     void Awake() //Lo ponemos antes de el Start del script
     {
         TextAsset textAssets = (TextAsset)Resources.Load("Credits_TXT"); //Busca en el path de recursos 
@@ -18,47 +18,43 @@ public class Credits : MonoBehaviour {
 
     void Start () //Aqui manipulamos el string 
     {
+
         //A todos los acomodamos
      for (int i = 0; i < HeaderSection.Length; i++)
         {
-            HeaderSection[i].text=ArrayTxT[i]; //Los hacemos iguales
-            HeaderSection[i].rectTransform.position = StartPos;                           
+            HeaderSection[i].text = GetDataValue(ArrayTxT[i]);
+            HeaderSection[i].rectTransform.position -= new Vector3(0, -30);
+                                   
         }
-        //Movemos individualmente
-        HeaderSection[0].rectTransform.position += new Vector3(+20.0f, 0.0f);//El titulo de Real Evolution Games;
-        HeaderSection[4].rectTransform.position = new Vector3(434.1f, 0.0f);//El titulo de Real Evolution Games;
-
-        //A todos los movemos hacia abajo
-        for (int i = 0; i < HeaderSection.Length; i++)
-        {
-            StartPos -= new Vector3(0.0f, 30f);
-            HeaderSection[i].rectTransform.position =StartPos;
-
-        }
+ 
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-       // Debug.Log(Components);
-	}
+        for (int i = 0; i < HeaderSection.Length; i++)
+        {
+            HeaderSection[i].rectTransform.position += new Vector3(0, 1.5f);
+        }
+    }
 
-    string GetDataValue(string data, string index)
+    string GetDataValue(string data)
     {
-        string value = data.Substring(data.IndexOf(index) + index.Length);
+        string value = data;
         if (value.Contains("|"))
         {
-            value = value.Remove(value.IndexOf("|"));
+            value = value.Remove(value.IndexOf("|"), 1);
+            return value;
         }
         else if (value.Contains("_"))
         {
-            value = value.Remove(value.IndexOf("_"));
-            return value + "Generous Donor";
+            value = value.Remove(value.IndexOf("_"),1);
+            return "Donor "+value;
         }
         else
         {
-            return value + ":";
+           return value+":";
         }
-        return value;
+        
     }
 }

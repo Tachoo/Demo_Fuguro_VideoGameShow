@@ -1,1 +1,1 @@
-Real Evolution Games.Inc:;CEO          |Jose Ortiz;Programer |Sergio Angulo;Artist         |Gabriela Urias;KickStarter:;Nametest1_;Nametest1_;Nametest1_;Nametest1_;Nametest1_;Nametest1_;Nametest1_;Nametest1_;Nametest1_;
+Real Evolution Games.Inc;CEO          |Jose Ortiz;Programer |Sergio Angulo;Artist         |Gabriela Urias;KickStarter;Erick Osuna_;Derian Jimenez_;Enrique Rios_;Jerry Garcia_;Roberto Villanueva_;Emilio Flores_;Diana Guerrero_;Abiud Cardona_;Chava Gonzalez_;
